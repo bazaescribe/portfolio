@@ -15,49 +15,65 @@ type Product = {
   description: string
   shortDescription: string
   imageUrl: string
+  year?: number
+  users?: number
+  growth?: string
 }
 
 // Sample product data
 const products: Product[] = [
   {
     id: 1,
-    title: "Mithrandir AI",
+    title: "Mithrir",
     shortDescription: "AI-powered business copilot for startups and SMBs.",
     description:
-      "Founder and lead designer of Mithrandir AI — a platform that turns messy business data into strategic decisions. I designed the full product experience, from ingestion to insights. The UI avoids traditional dashboards and instead surfaces contextual actions, with real-time API integration and Slack alerts. The brand identity is minimalist and brutalist, inspired by Gandalf’s staff and Helvetica, with a nod to Palantir’s visual system.",
+      "Founder and product designer of Mithrandir AI — a decision-support platform that helps small businesses turn raw sales and catalog data into actionable pricing strategies. Designed the full product, including data ingestion, pre-aggregated analysis, and smart recommendations. Built around real-time API workflows, auto-alerting, and Slack integrations. Focus is on automation, not just visualization.",
     imageUrl: "/mithrandir.png",
+    year: 2025,
+    users: 3,
+    growth: "300%"
   },
   {
     id: 2,
-    title: "RB Consulting – Brand & UX Refresh",
-    shortDescription: "Visual identity and web presence for a global consultancy.",
+    title: "RB Consulting – Web Platform & UX",
+    shortDescription: "Strategic UX overhaul for a global ops consultancy.",
     description:
-      "Led a full rebranding and UX overhaul for RB Consulting, a boutique strategy and ops firm. Developed a clean, confident brand system, including a responsive website and sleek pitch materials. Balanced corporate polish with a personal tone to reflect the firm’s hands-on approach.",
+      "Led the redesign of RB Consulting’s client-facing web platform and digital workflows. Introduced a modular architecture to simplify lead capture, client onboarding, and content delivery. Focused on creating a scalable experience that could support growth while keeping operations lean.",
     imageUrl: "/rbconsulting.png",
+    year: 2024
   },
   {
     id: 3,
-    title: "Homely – UX Optimization",
-    shortDescription: "Latin American home services marketplace.",
+    title: "Homely – Booking UX Optimization",
+    shortDescription: "LatAm home services marketplace.",
     description:
-      "Worked on improving Homely’s user experience, especially around booking and service matching flows. Proposed UX changes that reduced user drop-off and improved retention. Also helped align tone and visuals to reflect trust and professionalism for both sides of the marketplace.",
+      "Redesigned critical flows in Homely’s booking and service matching process. Simplified steps, clarified CTAs, and restructured scheduling logic to reduce user drop-off. Resulted in a measurable boost in conversions and repeat usage across key markets.",
     imageUrl: "/homely.png",
+    year: 2021,
+    users: 150000,
+    growth: "78%"
   },
   {
     id: 4,
-    title: "Aliada – Ops Redesign Proposal",
+    title: "Aliada – Ops Workflow Redesign",
     shortDescription: "Scalable domestic services platform.",
     description:
-      "Collaborated with the Aliada team to identify bottlenecks in user and operations workflows. Delivered a redesign proposal that clarified the internal operating system and improved platform scalability. Focused on reducing ambiguity for admins while maintaining a seamless experience for workers and clients.",
+      "Worked with Aliada’s team to map and redesign their internal operations system. Identified inefficiencies in service assignment, worker routing, and admin tools. Delivered a redesign proposal focused on scalability, usability, and error reduction in day-to-day ops.",
     imageUrl: "/aliada.png",
+    year: 2020,
+    users: 350000,
+    growth: "60%"
   },
   {
     id: 5,
-    title: "DEV.F – Learning Experience Design",
-    shortDescription: "Latin America's leading coding bootcamp.",
+    title: "DEV.F – Product-Led Learning Enhancements",
+    shortDescription: "UX improvements for Latin America's largest coding bootcamp.",
     description:
-      "Contributed to various learning experience improvements at DEV.F, including UI for student platforms and facilitator tools. Proposed subtle gamification features and design adjustments to boost engagement. Also participated in strategic discussions about new product opportunities and expansion.",
+      "Improved DEV.F’s digital learning experience with new student tools, better facilitator controls, and subtle gamification. Proposed features to increase retention and reduce support load. Also helped evaluate new product lines during their expansion phase.",
     imageUrl: "/devf.png",
+    year: 2019,
+    users: 100000,
+    growth: "95%"
   },
 ]
 
@@ -74,7 +90,7 @@ export default function ProductPortfolio() {
     <div className="max-w-2xl mx-auto">
       <section className="mb-16 pt-16">
         <h1 className="text-6xl mb-6">🚀</h1>
-        <h1 className="text-4xl mb-1 font-black">José Luis Rosas Baza</h1>
+        <h1 className="text-5xl mb-1 font-black">José Luis Rosas Baza</h1>
         <h2 className="text-2xl text-muted-foreground mb-8">Head of product</h2>
 
         <div className="space-y-6">
@@ -83,7 +99,7 @@ export default function ProductPortfolio() {
           </p>
 
           <p>
-            I've led product from zero to one, bootstrapped startups, and built interfaces that feel as good as they function. I care about clean UX, systems that scale, and helping teams make better decisions by design—not by chance.
+            I've led product from zero to one, bootstrapped startups, and built interfaces that feel as good as they function. I care about clean UX, systems that scale, and helping teams make better decisions by design not by chance.
           </p>
 
           <div className="flex flex-wrap gap-2 mt-6">
@@ -137,26 +153,49 @@ export default function ProductPortfolio() {
       <header className="mt-16 mb-12">
         <h2 className="text-3xl font-bold mb-3">Selected Work</h2>
         <p className="text-muted-foreground">
-          A collection of products I’ve designed, led, or launched. From lean MVPs to complex systems, always focused on clarity, value, and execution.
+          A collection of products I've designed, led, or launched. From lean MVPs to complex systems, always focused on clarity, value, and execution.
         </p>
       </header>
 
-      <section className="space-y-16">
-        {products.map((product) => (
-          <article key={product.id} className="group cursor-pointer" onClick={() => handleProductClick(product)}>
-            <div className="overflow-hidden mb-4">
-              <Image
-                src={product.imageUrl || "/placeholder.svg"}
-                alt={product.title}
-                width={800}
-                height={600}
-                className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <h2 className="text-xl font-medium mb-2">{product.title}</h2>
-            <p className="text-muted-foreground">{product.shortDescription}</p>
-          </article>
-        ))}
+      <section className="space-y-8">
+        <div className="w-full overflow-auto">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="border-b">
+                <th className="text-left py-3 pr-4 font-medium text-muted-foreground">Year</th>
+                <th className="text-left py-3 pr-4 font-medium">Title</th>
+                <th className="text-right py-3 font-medium text-muted-foreground">Users</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((product) => (
+                <tr 
+                  key={product.id} 
+                  className="border-b border-muted hover:bg-muted/50 cursor-pointer transition-colors"
+                  onClick={() => handleProductClick(product)}
+                >
+                  <td className="py-4 pr-4 text-muted-foreground">{product.year}</td>
+                  <td className="py-4 pr-4">
+                    <div>
+                      <h3 className="font-medium">{product.title}</h3>
+                      <p className="text-sm text-muted-foreground">{product.shortDescription}</p>
+                    </div>
+                  </td>
+                  <td className="py-4 text-right">
+                    {product.users && (
+                      <div>
+                        <div className="font-medium">{product.users.toLocaleString()}</div>
+                        {product.growth && (
+                          <div className="text-sm text-emerald-500">+{product.growth}</div>
+                        )}
+                      </div>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <Dialog open={open} onOpenChange={setOpen}>
