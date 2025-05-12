@@ -49,7 +49,7 @@ const products: Product[] = [
     description:
       "Redesigned critical flows in Homely’s booking and service matching process. Simplified steps, clarified CTAs, and restructured scheduling logic to reduce user drop-off. Resulted in a measurable boost in conversions and repeat usage across key markets.",
     imageUrl: "/homely.png",
-    year: 2021,
+    year: 2024,
     users: 150000,
     growth: "78%"
   },
@@ -60,7 +60,7 @@ const products: Product[] = [
     description:
       "Worked with Aliada’s team to map and redesign their internal operations system. Identified inefficiencies in service assignment, worker routing, and admin tools. Delivered a redesign proposal focused on scalability, usability, and error reduction in day-to-day ops.",
     imageUrl: "/aliada.png",
-    year: 2020,
+    year: 2016,
     users: 350000,
     growth: "60%"
   },
@@ -71,7 +71,7 @@ const products: Product[] = [
     description:
       "Improved DEV.F’s digital learning experience with new student tools, better facilitator controls, and subtle gamification. Proposed features to increase retention and reduce support load. Also helped evaluate new product lines during their expansion phase.",
     imageUrl: "/devf.png",
-    year: 2019,
+    year: 2024,
     users: 100000,
     growth: "95%"
   },
@@ -162,9 +162,9 @@ export default function ProductPortfolio() {
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b">
-                <th className="text-left py-3 pr-4 font-medium text-muted-foreground">Year</th>
+                <th className="text-left py-3 pr-4 font-medium text-muted-foreground pl-4">Year</th>
                 <th className="text-left py-3 pr-4 font-medium">Title</th>
-                <th className="text-right py-3 font-medium text-muted-foreground">Users</th>
+                <th className="text-left py-3 font-medium text-muted-foreground pr-4">Users</th>
               </tr>
             </thead>
             <tbody>
@@ -174,14 +174,14 @@ export default function ProductPortfolio() {
                   className="border-b border-muted hover:bg-muted/50 cursor-pointer transition-colors"
                   onClick={() => handleProductClick(product)}
                 >
-                  <td className="py-4 pr-4 text-muted-foreground">{product.year}</td>
+                  <td className="py-4 pr-4 text-muted-foreground pl-4">{product.year}</td>
                   <td className="py-4 pr-4">
                     <div>
                       <h3 className="font-medium">{product.title}</h3>
                       <p className="text-sm text-muted-foreground">{product.shortDescription}</p>
                     </div>
                   </td>
-                  <td className="py-4 text-right">
+                  <td className="py-4 text-left pr-4">
                     {product.users && (
                       <div>
                         <div className="font-medium">{product.users.toLocaleString()}</div>
