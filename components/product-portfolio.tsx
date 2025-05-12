@@ -89,7 +89,7 @@ export default function ProductPortfolio() {
           <div className="flex flex-wrap gap-2 mt-6">
             <span className="px-3 py-1 bg-muted rounded-full text-sm">Product Design</span>
             <span className="px-3 py-1 bg-muted rounded-full text-sm">UX/UI</span>
-            <span className="px-3 py-1 bg-muted rounded-full text-sm">AI for Business</span>
+            <span className="px-3 py-1 bg-muted rounded-full text-sm">AI</span>
             <span className="px-3 py-1 bg-muted rounded-full text-sm">Data-Driven Design</span>
             <span className="px-3 py-1 bg-muted rounded-full text-sm">Prototyping</span>
             <span className="px-3 py-1 bg-muted rounded-full text-sm">Systems Thinking</span>
