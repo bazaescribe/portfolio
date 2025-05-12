@@ -230,6 +230,10 @@ export default function ProductPortfolio() {
           </DialogContent>
         )}
       </Dialog>
+
+      <footer className="mt-24 mb-8 pt-8 border-t text-center text-sm text-muted-foreground">
+        <p>© {new Date().getFullYear()} José Luis Rosas Baza</p>
+      </footer>
     </div>
   )
 }
